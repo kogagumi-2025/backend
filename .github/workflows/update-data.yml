@@ -32,7 +32,7 @@ jobs:
           destination_repo: 'kogagumi-2025/frontend'
           destination_folder: ''
           destination_branch: 'main'
-          user_email: 'aratasuku05081914@gmail.com'
+          user_email: 'example@example.com'
           user_name: 'github-actions[bot]'
         env:
           API_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
