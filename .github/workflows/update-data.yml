@@ -29,7 +29,7 @@ jobs:
         uses: dmnemec/copy_file_to_another_repo_action@v1.0.4
         with:
           source_file: 'data.json'
-          destination_repo: 'kogagumi-2025/test-finance-frontend'
+          destination_repo: 'kogagumi-2025/frontend'
           destination_folder: ''
           destination_branch: 'main'
           user_email: 'aratasuku05081914@gmail.com'
