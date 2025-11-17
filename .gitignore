@@ -1,0 +1,12 @@
+# venv
+venv/
+
+# Python cache
+*.pyc
+__pycache__/
+
+# test
+.pytest_cache/
+
+# dev
+.DS_Store
