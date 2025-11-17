@@ -2,7 +2,7 @@ import yfinance as yf
 import csv
 import json
 import util
-_ = 'hoge'
+_ = 'hoge' # 開発が始まったらすぐに消せ
 
 # CSVから証券コード・会社の日本語名を取得
 stocks = []
