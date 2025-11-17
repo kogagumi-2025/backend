@@ -1,4 +1,13 @@
 {
-  "total": 0,
-  "recommendations": []
+  "data": [
+    {
+      "code": "hoge",
+      "name": "大和ハウス工業",
+      "currentPrice": "hoge",
+      "predictPrice": "hoge",
+      "profitRatio": "hoge",
+      "recommendation": "hoge",
+      "reasonsForRecommendation": "hoge"
+    }
+  ]
 }
