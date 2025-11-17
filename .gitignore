@@ -10,3 +10,6 @@ __pycache__/
 
 # dev
 .DS_Store
+
+# dynamic data
+data.json
