@@ -1,4 +1,4 @@
-# 証券データを受け取って、推奨度と理由をtaple型で返すコード
+# 証券コードを受け取って、推奨度と理由をtaple型で返すコード
 import talib
 import numpy as np
 import pandas as pd
@@ -29,7 +29,7 @@ def analyze_stock(df):
     cols += ['BBANDS_upperband', 'BBANDS_middleband', 'BBANDS_lowerband']
 
     
-    # 出来高移動平均線の計算
+    # 出来高移動平均の計算
     volume = df['Volume'].values.flatten()
     vma = volume.mean()
 
@@ -87,8 +87,8 @@ def analyze_stock(df):
         bbands_reason = "ボリンジャーバンドの範囲内です"
     print("Bollinger Bands Score:", bbands_score)
 
-    # 出来高移動平均線のスコア化
-    # 直近1日の出来高が移動平均線を上回れば1、下回れば-1、同じなら0
+    # 出来高移動平均のスコア化
+    # 直近1日の出来高が移動平均を上回れば1、下回れば-1、同じなら0
     if vma > volume[-1]:
         volume_sma_score = 1
         volume_sma_reason = "出来高が平均より高く、活発です"
@@ -104,7 +104,7 @@ def analyze_stock(df):
     recommendation_score = (sma_score + rsi_score + macd_score + bbands_score) / 4
     print("Recommendation Score:", recommendation_score)
 
-    # tuple型で返す
+    # 推奨度と理由をtuple型で返す
     recommendation = (recommendation_score, sma_reason,rsi_reason,macd_reason,bbands_reason)
     return recommendation
 
@@ -112,4 +112,3 @@ def analyze_stock(df):
 import yfinance as yf
 name = 'BTC-USD'
 df = yf.download(tickers=name, period='3mo')
-analyze_stock(df)
