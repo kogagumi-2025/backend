@@ -105,7 +105,7 @@ def analyze_stock(df):
     print("Recommendation Score:", recommendation_score)
 
     # 推奨度と理由をtuple型で返す
-    recommendation = (recommendation_score, sma_reason,rsi_reason,macd_reason,bbands_reason)
+    recommendation = (recommendation_score, sma_reason, rsi_reason, macd_reason, bbands_reason, volume_sma_reason)
     return recommendation
 
 # 以下使用例（不要なら削除してOK）
