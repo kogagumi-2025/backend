@@ -48,6 +48,7 @@ def analyze_stock(df):
 
     # RSIのスコア化
     # RSIが70以上なら-1、30以下なら1、その他は0
+    # RSIが70％～80％を超えると買われ過ぎ、反対に20％～30％を割り込むと売られ過ぎとされる。(参考サイト：https://info.monex.co.jp/technical-analysis/indicators/005.html)
     if output[-1, cols.index('RSI')] >= 70:
         rsi_score = -1
         rsi_reason = "買われすぎが確認されます"
