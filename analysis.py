@@ -15,7 +15,7 @@ stock_data = []
 for (security_code, japanese_name) in stocks:
     tmp = yf.Ticker(security_code)
     df = yf.download(tickers = security_code, period = '3mo')
-    analyzed_data = util.ayalyze_stock(df)
+    analyzed_data = util.analyze_stock(df)
     stock_data.append({
         'code': security_code,
         'name': japanese_name,
