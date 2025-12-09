@@ -14,7 +14,7 @@ with open('name.csv', 'r', encoding='utf-8') as csv_file:
 stock_data = []
 for (security_code, japanese_name) in stocks:
     tmp = yf.Ticker(security_code)
-    df = yf.download(tickers = security_code, period = '3mo')
+    df = yf.download(tickers = security_code, period = '3mo', auto_adjust = True)
     analyzed_data = util.analyze_stock(df)
     stock_data.append({
         'code': security_code,
