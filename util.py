@@ -101,7 +101,7 @@ def analyze_stock(df):
     print("Volume SMA Score:", volume_sma_score)
 
     # 推奨度の計算
-    recommendation_score = (sma_score + rsi_score + macd_score + bbands_score) / 4
+    recommendation_score = (sma_score + rsi_score + macd_score + bbands_score + volume_sma_score) / 5
     print("Recommendation Score:", recommendation_score)
 
     # 推奨度と理由をtuple型で返す
@@ -110,5 +110,5 @@ def analyze_stock(df):
 
 # 以下使用例（不要なら削除してOK）
 import yfinance as yf
-name = 'BTC-USD'
+name = '1720.T'  # 証券コード
 df = yf.download(tickers=name, period='3mo')
