@@ -22,7 +22,7 @@ for (security_code, japanese_name) in stocks:
         'name': japanese_name,
         'currentPrice': tmp.info['currentPrice'],
         'recommendation': analyzed_data[0],
-        'reasonsForRecommendation': analyzed_data[1:],
+        'reasonsForRecommendation': '<br>'.join(analyzed_data[1:]),
     })
 
 
