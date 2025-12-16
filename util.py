@@ -7,7 +7,6 @@ def analyze_stock(df):
 
     # TALib の SMA を計算（1次元に変換）
     close = df['Close'].values.flatten()
-    output = close.copy()
     cols = ['Original']
     df['SMA5'] = talib.SMA(close, timeperiod=5)
     df['SMA30'] = talib.SMA(close, timeperiod=30)
@@ -44,7 +43,6 @@ def analyze_stock(df):
     else:
         sma_score = 0
         sma_reason = "横ばいです"
-    print("SMA Score:", sma_score)
 
     # RSIのスコア化
     # RSIが70以上なら-1、30以下なら1、その他は0
@@ -58,7 +56,6 @@ def analyze_stock(df):
     else:
         rsi_score = 0
         rsi_reason = "中立的な状態が確認されます"
-    print("RSI Score:", rsi_score)
 
     # MACDのスコア化
     # ゴールデンクロスで1、デッドクロスで-1、その他は0
@@ -73,7 +70,6 @@ def analyze_stock(df):
     else:
         macd_score = 0
         macd_reason = "クロスは発生していません"
-    print("MACD Score:", macd_score)
 
     # ボリンジャーバンドのスコア化
     # 終値が上部バンドを上回れば-1、下部バンドを下回れば1、その他は0
@@ -86,7 +82,6 @@ def analyze_stock(df):
     else:
         bbands_score = 0
         bbands_reason = "ボリンジャーバンドの範囲内です"
-    print("Bollinger Bands Score:", bbands_score)
 
     # 出来高移動平均のスコア化
     # 直近1日の出来高が移動平均を上回れば1、下回れば-1、同じなら0
@@ -99,17 +94,10 @@ def analyze_stock(df):
     else:
         volume_sma_score = 0
         volume_sma_reason = "出来高は平均的です"
-    print("Volume SMA Score:", volume_sma_score)
 
     # 推奨度の計算
     recommendation_score = (sma_score + rsi_score + macd_score + bbands_score + volume_sma_score) / 5
-    print("Recommendation Score:", recommendation_score)
 
     # 推奨度と理由をtuple型で返す
     recommendation = (recommendation_score, sma_reason, rsi_reason, macd_reason, bbands_reason, volume_sma_reason)
     return recommendation
-
-# 以下使用例（不要なら削除してOK）
-import yfinance as yf
-name = '1720.T'  # 証券コード
-df = yf.download(tickers=name, period='3mo')
