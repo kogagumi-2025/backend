@@ -12,10 +12,11 @@ with open('name.csv', 'r', encoding='utf-8') as csv_file:
 
 # 証券コードから株価を取得
 stock_data = []
+security_codes = [row[0] for row in stocks]
+df = yf.download(tickers=security_codes, period='3mo', auto_adjust=True)
 for (security_code, japanese_name) in stocks:
     tmp = yf.Ticker(security_code)
-    df = yf.download(tickers = security_code, period = '3mo')
-    analyzed_data = util.ayalyze_stock(df)
+    analyzed_data = util.analyze_stock(df.loc[:, (slice(None), security_code)])
     stock_data.append({
         'code': security_code,
         'name': japanese_name,
