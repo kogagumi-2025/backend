@@ -15,7 +15,7 @@ def analyze_stock(df):
     # keep an alias used later in the code
     output['Original'] = close.copy()
     df['SMA5'] = talib.SMA(close, timeperiod=5)
-    df['SMA30'] = talib.SMA(close, timep
+    df['SMA30'] = talib.SMA(close, timeperiod=30)
 
 
     # RSIの計算
