@@ -81,10 +81,10 @@ def analyze_stock(df):
 
     # ボリンジャーバンドのスコア化
     # 終値が上部バンドを上回れば-1、下部バンドを下回れば1、その他は0
-    if output['Original'][-1] > output['BBANDS_upperband'][-1]:
+    if output['Original'][-1] > output['BBANDS_upperband'][-2]:
         bbands_score = -1
         bbands_reason = "ボリンジャーバンドの上限を上回りました"
-    elif output['Original'][-1] < output['BBANDS_lowerband'][-1]:
+    elif output['Original'][-1] < output['BBANDS_lowerband'][-2]:
         bbands_score = 1
         bbands_reason = "ボリンジャーバンドの下限を下回りました"
     else:

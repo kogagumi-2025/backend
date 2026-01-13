@@ -116,10 +116,7 @@ class TestStockAnalysis(unittest.TestCase):
 
     # ボリンジャーバンド下限割れのテスト
     def test_bbands_lower_break(self):
-        '''
         self.df.iloc[-1, self.df.columns.get_loc('Close')] = 0.0
-        self.df.iloc[-2, self.df.columns.get_loc('Close')] = 2000.0
-        '''
         result = util.analyze_stock(self.df)
 
         expected_reason = "ボリンジャーバンドの下限を下回りました"
