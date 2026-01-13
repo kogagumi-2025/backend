@@ -1,0 +1,78 @@
+test_bbands_lower_break (__main__.TestStockAnalysis.test_bbands_lower_break) ... FAIL
+test_bbands_upper_break (__main__.TestStockAnalysis.test_bbands_upper_break) ... FAIL
+test_bbands_within_range (__main__.TestStockAnalysis.test_bbands_within_range) ... ok
+test_macd_dead_cross (__main__.TestStockAnalysis.test_macd_dead_cross) ... FAIL
+test_macd_golden_cross (__main__.TestStockAnalysis.test_macd_golden_cross) ... ok
+test_macd_no_cross (__main__.TestStockAnalysis.test_macd_no_cross) ... ok
+test_rsi_neutral (__main__.TestStockAnalysis.test_rsi_neutral) ... FAIL
+test_rsi_overbought (__main__.TestStockAnalysis.test_rsi_overbought) ... ok
+test_rsi_oversold (__main__.TestStockAnalysis.test_rsi_oversold) ... ok
+test_sma_falling_trend (__main__.TestStockAnalysis.test_sma_falling_trend) ... ok
+test_sma_rising_trend (__main__.TestStockAnalysis.test_sma_rising_trend) ... ok
+test_sma_sideways_trend (__main__.TestStockAnalysis.test_sma_sideways_trend) ... ok
+
+======================================================================
+FAIL: test_bbands_lower_break (__main__.TestStockAnalysis.test_bbands_lower_break)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nagi/Documents/課題/ソフトウェア設計/backend/test_util.py", line 124, in test_bbands_lower_break
+    self.assertEqual(result[4], expected_reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ボリンジャーバンドの範囲内です' != 'ボリンジャーバンドの下限を下回りました'
+- ボリンジャーバンドの範囲内です
++ ボリンジャーバンドの下限を下回りました
+
+
+======================================================================
+FAIL: test_bbands_upper_break (__main__.TestStockAnalysis.test_bbands_upper_break)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nagi/Documents/課題/ソフトウェア設計/backend/test_util.py", line 114, in test_bbands_upper_break
+    self.assertEqual(result[4], expected_reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ボリンジャーバンドの範囲内です' != 'ボリンジャーバンドの上限を上回りました'
+- ボリンジャーバンドの範囲内です
++ ボリンジャーバンドの上限を上回りました
+
+
+======================================================================
+FAIL: test_macd_dead_cross (__main__.TestStockAnalysis.test_macd_dead_cross)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nagi/Documents/課題/ソフトウェア設計/backend/test_util.py", line 95, in test_macd_dead_cross
+    self.assertEqual(result[3], expected_reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'クロスは発生していません' != 'デッドクロスが発生しています'
+- クロスは発生していません
++ デッドクロスが発生しています
+
+
+======================================================================
+FAIL: test_rsi_neutral (__main__.TestStockAnalysis.test_rsi_neutral)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/nagi/Documents/課題/ソフトウェア設計/backend/test_util.py", line 73, in test_rsi_neutral
+    self.assertEqual(result[2], expected_reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '売られすぎが確認されます' != '中立的な状態が確認されます'
+- 売られすぎが確認されます
++ 中立的な状態が確認されます
+
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.004s
+
+FAILED (failures=4)
+=== テストを開始します ===
+期待値: ボリンジャーバンドの下限を下回りました 実測値: ボリンジャーバンドの範囲内です
+期待値: ボリンジャーバンドの上限を上回りました 実測値: ボリンジャーバンドの範囲内です
+期待値: ボリンジャーバンドの範囲内です 実測値: ボリンジャーバンドの範囲内です
+期待値: デッドクロスが発生しています 実測値: クロスは発生していません
+期待値: ゴールデンクロスが発生した 実測値: ゴールデンクロスが発生した
+期待値: クロスは発生していません 実測値: クロスは発生していません
+期待値: 中立的な状態が確認されます 実測値: 売られすぎが確認されます
+期待値: 買われすぎが確認されます 実測値: 買われすぎが確認されます
+期待値: 売られすぎが確認されます 実測値: 売られすぎが確認されます
+期待値: 下降トレンドです 実測値: 下降トレンドです
+期待値: 上昇トレンドです 実測値: 上昇トレンドです
+期待値: 横ばいです 実測値: 横ばいです

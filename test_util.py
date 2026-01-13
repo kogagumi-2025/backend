@@ -65,11 +65,12 @@ class TestStockAnalysis(unittest.TestCase):
     
     # RSI中立のテスト
     def test_rsi_neutral(self):
+        self.df.iloc[-1, self.df.columns.get_loc('Close')] -= 100.0
+        self.df.iloc[-2, self.df.columns.get_loc('Close')] += 101.0
         result = util.analyze_stock(self.df)
 
         expected_reason = "中立的な状態が確認されます"
         print(f"期待値: {expected_reason} 実測値: {result[2]}")
-        
         self.assertEqual(result[2], expected_reason)
 
     # MACDゴールデンクロスのテスト
@@ -112,15 +113,20 @@ class TestStockAnalysis(unittest.TestCase):
         print(f"期待値: {expected_reason} 実測値: {result[4]}")
         
         self.assertEqual(result[4], expected_reason)
+
     # ボリンジャーバンド下限割れのテスト
     def test_bbands_lower_break(self):
-        self.df.iloc[-1, self.df.columns.get_loc('Close')] = 100.0
+        '''
+        self.df.iloc[-1, self.df.columns.get_loc('Close')] = 0.0
+        self.df.iloc[-2, self.df.columns.get_loc('Close')] = 2000.0
+        '''
         result = util.analyze_stock(self.df)
 
         expected_reason = "ボリンジャーバンドの下限を下回りました"
         print(f"期待値: {expected_reason} 実測値: {result[4]}")
         
         self.assertEqual(result[4], expected_reason)
+
     # ボリンジャーバンド範囲内のテスト
     def test_bbands_within_range(self):
         result = util.analyze_stock(self.df)

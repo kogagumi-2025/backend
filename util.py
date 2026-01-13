@@ -33,6 +33,8 @@ def analyze_stock(df):
     output['BBANDS_upperband'] = upperband
     output['BBANDS_middleband'] = middleband
     output['BBANDS_lowerband'] = lowerband
+    print(output['BBANDS_upperband'][-1])
+    print(output['BBANDS_lowerband'][-1])
     
     # 出来高移動平均の計算
     volume = df['Volume'].values.flatten()
