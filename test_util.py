@@ -86,8 +86,8 @@ class TestStockAnalysis(unittest.TestCase):
     
     # MACDデッドクロスのテスト
     def test_macd_dead_cross(self):
-        self.df.iloc[-2, self.df.columns.get_loc('Close')] = 2000.0
-        self.df.iloc[-1, self.df.columns.get_loc('Close')] = 900.0
+        self.df.iloc[-2, self.df.columns.get_loc('Close')] = 2000.0 
+        self.df.iloc[-1, self.df.columns.get_loc('Close')] = 300.0
         result = util.analyze_stock(self.df)
 
         expected_reason = "デッドクロスが発生しています"

@@ -68,13 +68,15 @@ def analyze_stock(df):
     # MACDのスコア化
     # ゴールデンクロスで1、デッドクロスで-1、その他は0
     if output['MACD'][-1] > output['MACD_signal'][-1] and \
-    output['MACD'][-2] <= output['MACD_signal'][-2]:
+    output['MACD'][-2] < output['MACD_signal'][-2]:
         macd_score = 1 # ゴールデンクロス
         macd_reason = "ゴールデンクロスが発生した"
+
     elif output['MACD'][-1] < output['MACD_signal'][-1] and \
-    output['MACD'][-2] >= output['MACD_signal'][-2]:
+    output['MACD'][-2] > output['MACD_signal'][-2]:
         macd_score = -1 # デッドクロス
         macd_reason = "デッドクロスが発生しています"
+        
     else:
         macd_score = 0
         macd_reason = "クロスは発生していません"
