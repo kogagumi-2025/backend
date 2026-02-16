@@ -5,7 +5,7 @@ import pandas as pd
 import warnings
 
 # dfの値は正常に変更されているため、無視する
-warnings.simplefilter('ignore', pd.errors.SettingWithCopyWarning)
+# warnings.simplefilter('ignore', pd.errors.SettingWithCopyWarning)
 
 def analyze_stock(df):
 
